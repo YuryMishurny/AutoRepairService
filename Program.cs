@@ -9,8 +9,8 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            STO sto = new STO();
-            sto.IsWork();
+            AutoRepairService autoRepairService = new AutoRepairService();
+            autoRepairService.Work();
         }
     }
 }

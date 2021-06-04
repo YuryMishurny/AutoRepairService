@@ -7,7 +7,7 @@ namespace ConsoleApp3
     class Car
     {
         private string _brand;
-        public string Breakdown;
+        public string Breakdown { get; }
 
         public Car(string brand, string breakdown)
         {

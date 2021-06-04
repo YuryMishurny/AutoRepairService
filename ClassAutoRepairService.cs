@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    class STO
+    class AutoRepairService
     {
         bool _isOpen = true;
         private int _balansMoney;
@@ -29,7 +29,7 @@ namespace ConsoleApp3
             _cars.Enqueue(new Car("OPEL", "Руль"));
         }
 
-        public void IsWork()
+        public void Work()
         {
             AddCars();
 
@@ -53,7 +53,7 @@ namespace ConsoleApp3
 
                         Console.SetCursorPosition(0, 0);
 
-                        RepairingCars();
+                        RepairCar();
                         break;
                     case "2":
                         _isOpen = false;
@@ -69,7 +69,7 @@ namespace ConsoleApp3
             }
         }
 
-        private void RepairingCars()
+        private void RepairCar()
         {
             if (_cars.Count > 0)
             {
@@ -89,11 +89,11 @@ namespace ConsoleApp3
                         {
                             if (_details[i].NameDetail == userInput)
                             {
+                                Console.WriteLine("Вы успешно отремонтировали автомобиль и заработали: " + _details[i].Price + " $");
                                 GetMoneyPerJob(_details[i]);
                                 _details.Remove(_details[i]);
                             }
                         }
-                        Console.WriteLine("Вы успешно отремонтировали автомобиль");
                     }
                     else if (IsAvailabilityDetail(_details, userInput))
                     {
